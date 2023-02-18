@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -14,9 +15,16 @@
         <scene sceneID="Jky-yy-816">
             <objects>
                 <navigationController id="ISv-LQ-zI6" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QLI-6w-MdW">
+                    <navigationBar key="navigationBar" userInteractionEnabled="NO" contentMode="scaleToFill" id="QLI-6w-MdW">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <color key="textColor" systemColor="labelColor"/>
+                        </textAttributes>
+                        <connections>
+                            <outlet property="delegate" destination="ISv-LQ-zI6" id="lvV-7H-hlF"/>
+                        </connections>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OQ9-Gh-bbQ"/>
@@ -33,19 +41,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPH-CK-kty">
-                                <rect key="frame" x="159" y="409" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5N-vc-9DX"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -58,14 +53,29 @@
         <!--Карта-->
         <scene sceneID="CZr-cC-8aH">
             <objects>
-                <viewController id="4Og-7T-xhB" sceneMemberID="viewController">
+                <viewController id="4Og-7T-xhB" customClass="MapViewController" customModule="TestTheApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Acv-ZH-GGB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ole-5w-Dl2">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3gY-QZ-Cn2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ole-5w-Dl2" firstAttribute="top" secondItem="3gY-QZ-Cn2" secondAttribute="top" id="1eJ-10-V5m"/>
+                            <constraint firstItem="3gY-QZ-Cn2" firstAttribute="bottom" secondItem="ole-5w-Dl2" secondAttribute="bottom" id="INN-kc-I2S"/>
+                            <constraint firstItem="3gY-QZ-Cn2" firstAttribute="trailing" secondItem="ole-5w-Dl2" secondAttribute="trailing" id="U5G-1E-cvX"/>
+                            <constraint firstItem="ole-5w-Dl2" firstAttribute="leading" secondItem="3gY-QZ-Cn2" secondAttribute="leading" id="f7k-SJ-r6E"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Карта" image="Карта" id="QXQ-EG-hCg"/>
+                    <connections>
+                        <outlet property="mapView" destination="ole-5w-Dl2" id="0Vd-nO-arx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzV-ss-LXu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,10 +165,10 @@
             </objects>
             <point key="canvasLocation" x="1848" y="255"/>
         </scene>
-        <!--Table View Controller-->
+        <!--News Table View Controller-->
         <scene sceneID="wdP-2a-PXh">
             <objects>
-                <tableViewController id="nGj-hy-nJP" sceneMemberID="viewController">
+                <tableViewController id="nGj-hy-nJP" customClass="NewsTableViewController" customModule="TestTheApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Fyp-i4-F5i">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +287,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5Fw-Rd-y4Z"/>
+        <segue reference="u60-zS-fur"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ИЗбранное" width="28" height="24"/>
@@ -286,9 +296,6 @@
         <image name="Профиль" width="26" height="26"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
