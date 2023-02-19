@@ -8,9 +8,10 @@
 import Foundation
 
 struct NewsViewModel {
+    var id: Int
     let imageName: String
     let date: String
     let title: String
     let content: String?
-    let favoriteImageName: String
+    var favorite: Bool
 }

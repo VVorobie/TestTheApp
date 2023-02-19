@@ -1,26 +1,19 @@
 //
-//  NewsView.swift
+//  ArticleView.swift
 //  TestTheApp
 //
-//  Created by Владимир Воробьев on 17.02.2023.
+//  Created by Владимир Воробьев on 19.02.2023.
 //
 
 import UIKit
 
-final class NewsCellView: UIView {
+final class ArticleView: UIView {
 
     private lazy var picture: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 22
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var coveringView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -52,14 +45,10 @@ final class NewsCellView: UIView {
         return text
     }()
       
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
+    convenience init(model: NewsViewModel) {
+        self.init(frame: .zero)
         setupView()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        config(with: model)
     }
     
     func config (with model: NewsViewModel) {
@@ -75,51 +64,43 @@ final class NewsCellView: UIView {
     
     private func setupView() {
         backgroundColor = .white //#FFFFFF
-        layer.cornerRadius = 22
         clipsToBounds = true
-        translatesAutoresizingMaskIntoConstraints = false
                 
         setupConstraints ()
     }
     
     private func setupConstraints () {
         addSubview(picture)
-        addSubview(coveringView)
         addSubview(dateLabel)
         addSubview(favoritePicture)
         addSubview(titleLabel)
         addSubview(contentTextView)
         
         NSLayoutConstraint.activate([
-            picture.leadingAnchor.constraint(equalTo: leadingAnchor),
-            picture.topAnchor.constraint(equalTo: topAnchor),
-            picture.trailingAnchor.constraint(equalTo: trailingAnchor),
-            picture.heightAnchor.constraint(equalTo: picture.widthAnchor, multiplier: 260 / 375),
+            picture.leadingAnchor.constraint(equalTo: centerXAnchor, constant:  -375 / 2),
+            picture.topAnchor.constraint(equalTo: topAnchor, constant: 100),
+            picture.widthAnchor.constraint(equalToConstant: 375),
+            picture.heightAnchor.constraint(equalToConstant: 260),
 
-            coveringView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            coveringView.heightAnchor.constraint(equalToConstant: 108),
-            coveringView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            coveringView.bottomAnchor.constraint(equalTo: bottomAnchor),
-
-            dateLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 18),
-            dateLabel.topAnchor.constraint(equalTo: coveringView.topAnchor, constant: 9),
+            dateLabel.leadingAnchor.constraint(equalTo: picture.leadingAnchor, constant: 15),
+            dateLabel.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 15),
 //            dateLabel.widthAnchor.constraint(equalToConstant: 72),
             dateLabel.heightAnchor.constraint(equalToConstant: 18),
 
-            favoritePicture.trailingAnchor.constraint(equalTo: coveringView.trailingAnchor, constant: -19),
-            favoritePicture.topAnchor.constraint(equalTo: coveringView.topAnchor, constant: 10),
+            favoritePicture.trailingAnchor.constraint(equalTo: picture.trailingAnchor, constant: -23),
+            favoritePicture.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 14),
             favoritePicture.widthAnchor.constraint(equalToConstant: 22),
             favoritePicture.heightAnchor.constraint(equalToConstant: 20.32),
 
-            titleLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: picture.leadingAnchor, constant: 15),
             titleLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 11),
-            titleLabel.widthAnchor.constraint(equalToConstant: 313),
+            titleLabel.widthAnchor.constraint(equalToConstant: 310),
             titleLabel.heightAnchor.constraint(equalToConstant: 20),
 
-            contentTextView.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 16),
-            contentTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
-            contentTextView.widthAnchor.constraint(equalToConstant: 313),
-            contentTextView.heightAnchor.constraint(equalToConstant: 36)
-        ])    
+            contentTextView.leadingAnchor.constraint(equalTo: picture.leadingAnchor, constant: 15),
+            contentTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            contentTextView.widthAnchor.constraint(equalToConstant: 346),
+            contentTextView.heightAnchor.constraint(equalToConstant: 324)
+        ])
     }
 }

@@ -1,13 +1,13 @@
 //
-//  NewsView.swift
+//  FavoritesCellView.swift
 //  TestTheApp
 //
-//  Created by Владимир Воробьев on 17.02.2023.
+//  Created by Владимир Воробьев on 19.02.2023.
 //
 
 import UIKit
 
-final class NewsCellView: UIView {
+final class FavoritesCellView: UIView {
 
     private lazy var picture: UIImageView = {
         let view = UIImageView()
@@ -41,15 +41,10 @@ final class NewsCellView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProSemi.withSize(16)
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-    
-    private lazy var contentTextView: UITextView = {
-        let text = UITextView()
-        text.font = Fonts.sfProNormal.withSize(13)
-        text.translatesAutoresizingMaskIntoConstraints = false
-        return text
     }()
       
     override init(frame: CGRect) {
@@ -68,7 +63,6 @@ final class NewsCellView: UIView {
         else { favoritePicture.image = UIImage(named: "Неизбранное") }
         dateLabel.text = model.date
         titleLabel.text = model.title
-        contentTextView.text = model.content
     }
     
     // MARK: - Subviews Setup
@@ -88,7 +82,6 @@ final class NewsCellView: UIView {
         addSubview(dateLabel)
         addSubview(favoritePicture)
         addSubview(titleLabel)
-        addSubview(contentTextView)
         
         NSLayoutConstraint.activate([
             picture.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -97,29 +90,25 @@ final class NewsCellView: UIView {
             picture.heightAnchor.constraint(equalTo: picture.widthAnchor, multiplier: 260 / 375),
 
             coveringView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            coveringView.heightAnchor.constraint(equalToConstant: 108),
+            coveringView.heightAnchor.constraint(equalToConstant: 96),
             coveringView.trailingAnchor.constraint(equalTo: trailingAnchor),
             coveringView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            dateLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 18),
-            dateLabel.topAnchor.constraint(equalTo: coveringView.topAnchor, constant: 9),
+            dateLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 6),
+            dateLabel.topAnchor.constraint(equalTo: coveringView.topAnchor, constant: 11),
 //            dateLabel.widthAnchor.constraint(equalToConstant: 72),
             dateLabel.heightAnchor.constraint(equalToConstant: 18),
 
-            favoritePicture.trailingAnchor.constraint(equalTo: coveringView.trailingAnchor, constant: -19),
+            favoritePicture.trailingAnchor.constraint(equalTo: coveringView.trailingAnchor, constant: -10),
             favoritePicture.topAnchor.constraint(equalTo: coveringView.topAnchor, constant: 10),
             favoritePicture.widthAnchor.constraint(equalToConstant: 22),
             favoritePicture.heightAnchor.constraint(equalToConstant: 20.32),
 
-            titleLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 16),
-            titleLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 11),
-            titleLabel.widthAnchor.constraint(equalToConstant: 313),
-            titleLabel.heightAnchor.constraint(equalToConstant: 20),
-
-            contentTextView.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 16),
-            contentTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
-            contentTextView.widthAnchor.constraint(equalToConstant: 313),
-            contentTextView.heightAnchor.constraint(equalToConstant: 36)
-        ])    
+            titleLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            titleLabel.widthAnchor.constraint(equalToConstant: 148),
+            titleLabel.heightAnchor.constraint(equalToConstant: 42)
+        ])
     }
 }
+

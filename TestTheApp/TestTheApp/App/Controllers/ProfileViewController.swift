@@ -7,16 +7,34 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    private var profileView: ProfileView { view as! ProfileView }
+    
+    lazy var model: ProfileViewModel = {
+        return ProfileViewModel(photoName: CurrentUser.photo,
+                                name: CurrentUser.name,
+                                email: CurrentUser.email)
+    }()
+    
+    // MARK: - View Controller Lifecycle Methods
+    
+    override func loadView() {
+        view = ProfileView(model: model)
     }
     
-
-    @IBAction func resetButton(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureDelegatesAndHandlers()
+    }
+    
+    // MARK: - Action Handlers
+    
+    @objc private func handlerExit() {
         navigationController?.popToRootViewController(animated: true)
+    }
+
+    func configureDelegatesAndHandlers() {
+        profileView.exitButton.addTarget(self, action: #selector(handlerExit), for: .touchUpInside)
     }
 }

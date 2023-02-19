@@ -8,22 +8,23 @@
 import UIKit
 
 class ArticleViewController: UIViewController {
+    
+    private var articleView: ArticleView { view as! ArticleView }
+    
+    var model: NewsViewModel?
+    
+    // MARK: - View Controller Lifecycle Methods
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func loadView() {
+        if let viewModel = model {
+            view = ArticleView(model: viewModel)
+        } else {
+            view = ArticleView()
+        }        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        navigationItem.title = "Статья"
+        super.viewDidLoad()
     }
-    */
-
 }

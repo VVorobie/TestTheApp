@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D23ED5D299FA4B300EAF8AF /* MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ED5C299FA4B300EAF8AF /* MapData.swift */; };
 		2D23ED60299FC2F200EAF8AF /* MapMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ED5F299FC2F200EAF8AF /* MapMarkView.swift */; };
-		2D23ED6229A0043D00EAF8AF /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ED6129A0043C00EAF8AF /* NewsTableViewController.swift */; };
+		2D23ED6229A0043D00EAF8AF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ED6129A0043C00EAF8AF /* NewsViewController.swift */; };
 		2D23ED6429A004EC00EAF8AF /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ED6329A004EC00EAF8AF /* NewsTableViewCell.swift */; };
 		2D23ED6629A0054200EAF8AF /* NewsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ED6529A0054200EAF8AF /* NewsCellView.swift */; };
 		2D23ED6929A0058900EAF8AF /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D23ED6829A0058900EAF8AF /* NewsViewModel.swift */; };
@@ -33,13 +33,20 @@
 		2D8E5076299F6A4B00A3A6A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E5075299F6A4B00A3A6A7 /* MapViewController.swift */; };
 		2D8E507A299F6FDA00A3A6A7 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E5079299F6FDA00A3A6A7 /* FavoritesViewController.swift */; };
 		2D8E507C299F72C800A3A6A7 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E507B299F72C700A3A6A7 /* ArticleViewController.swift */; };
+		2DB70B1029A217F6000E0457 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B0F29A217F5000E0457 /* ArticleView.swift */; };
+		2DB70B1229A23487000E0457 /* FavoritesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B1129A23487000E0457 /* FavoritesCellView.swift */; };
+		2DB70B1429A2360F000E0457 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B1329A2360F000E0457 /* FavoritesCollectionViewCell.swift */; };
+		2DB70B1729A2699F000E0457 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B1629A2699F000E0457 /* ProfileViewModel.swift */; };
+		2DB70B1929A26DD1000E0457 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B1829A26DD1000E0457 /* ProfileView.swift */; };
+		2DB70B1B29A29CFC000E0457 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B1A29A29CFC000E0457 /* CurrentUser.swift */; };
 		2DDFACAA299D69D100E07A96 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDFACA9299D69D100E07A96 /* ProfileViewController.swift */; };
+		2DFC79B229A13C5700465CA9 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC79B129A13C5700465CA9 /* NewsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D23ED5C299FA4B300EAF8AF /* MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapData.swift; sourceTree = "<group>"; };
 		2D23ED5F299FC2F200EAF8AF /* MapMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkView.swift; sourceTree = "<group>"; };
-		2D23ED6129A0043C00EAF8AF /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		2D23ED6129A0043C00EAF8AF /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		2D23ED6329A004EC00EAF8AF /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		2D23ED6529A0054200EAF8AF /* NewsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellView.swift; sourceTree = "<group>"; };
 		2D23ED6829A0058900EAF8AF /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -63,7 +70,14 @@
 		2D8E5075299F6A4B00A3A6A7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D8E5079299F6FDA00A3A6A7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2D8E507B299F72C700A3A6A7 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		2DB70B0F29A217F5000E0457 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		2DB70B1129A23487000E0457 /* FavoritesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCellView.swift; sourceTree = "<group>"; };
+		2DB70B1329A2360F000E0457 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DB70B1629A2699F000E0457 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		2DB70B1829A26DD1000E0457 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2DB70B1A29A29CFC000E0457 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		2DDFACA9299D69D100E07A96 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2DFC79B129A13C5700465CA9 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +96,12 @@
 		2D23ED5E299FC2A700EAF8AF /* VIews */ = {
 			isa = PBXGroup;
 			children = (
+				2DB70B1529A2383C000E0457 /* Cells */,
 				2D23ED5F299FC2F200EAF8AF /* MapMarkView.swift */,
-				2D23ED6329A004EC00EAF8AF /* NewsTableViewCell.swift */,
 				2D23ED6529A0054200EAF8AF /* NewsCellView.swift */,
+				2DB70B0F29A217F5000E0457 /* ArticleView.swift */,
+				2DB70B1129A23487000E0457 /* FavoritesCellView.swift */,
+				2DB70B1829A26DD1000E0457 /* ProfileView.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -93,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				2D23ED6829A0058900EAF8AF /* NewsViewModel.swift */,
+				2DB70B1629A2699F000E0457 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -203,7 +221,7 @@
 				2DDFACA9299D69D100E07A96 /* ProfileViewController.swift */,
 				2D8E5079299F6FDA00A3A6A7 /* FavoritesViewController.swift */,
 				2D8E507B299F72C700A3A6A7 /* ArticleViewController.swift */,
-				2D23ED6129A0043C00EAF8AF /* NewsTableViewController.swift */,
+				2D23ED6129A0043C00EAF8AF /* NewsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -212,8 +230,19 @@
 			isa = PBXGroup;
 			children = (
 				2D23ED5C299FA4B300EAF8AF /* MapData.swift */,
+				2DFC79B129A13C5700465CA9 /* NewsData.swift */,
+				2DB70B1A29A29CFC000E0457 /* CurrentUser.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		2DB70B1529A2383C000E0457 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2D23ED6329A004EC00EAF8AF /* NewsTableViewCell.swift */,
+				2DB70B1329A2360F000E0457 /* FavoritesCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,25 +325,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D368A1F299E0EE40039E7C4 /* Fonts.swift in Sources */,
+				2DB70B1929A26DD1000E0457 /* ProfileView.swift in Sources */,
+				2DFC79B229A13C5700465CA9 /* NewsData.swift in Sources */,
 				2D368A21299E15110039E7C4 /* Colors.swift in Sources */,
 				2D368A19299E07F40039E7C4 /* RegistrationViewController.swift in Sources */,
 				2D368A23299E7C540039E7C4 /* UITextField+Padding.swift in Sources */,
+				2DB70B1029A217F6000E0457 /* ArticleView.swift in Sources */,
 				2D23ED6929A0058900EAF8AF /* NewsViewModel.swift in Sources */,
 				2D23ED60299FC2F200EAF8AF /* MapMarkView.swift in Sources */,
+				2DB70B1429A2360F000E0457 /* FavoritesCollectionViewCell.swift in Sources */,
 				2D25C0F7299B6A3400B8B084 /* AuthViewController.swift in Sources */,
+				2DB70B1729A2699F000E0457 /* ProfileViewModel.swift in Sources */,
 				2D368A17299E07570039E7C4 /* AuthView.swift in Sources */,
 				2D8E5076299F6A4B00A3A6A7 /* MapViewController.swift in Sources */,
-				2D23ED6229A0043D00EAF8AF /* NewsTableViewController.swift in Sources */,
+				2D23ED6229A0043D00EAF8AF /* NewsViewController.swift in Sources */,
 				2D368A1C299E0ABD0039E7C4 /* AuthViewModel.swift in Sources */,
 				2D368A27299EBC7E0039E7C4 /* ResetPassView.swift in Sources */,
 				2D23ED5D299FA4B300EAF8AF /* MapData.swift in Sources */,
 				2D8E507C299F72C800A3A6A7 /* ArticleViewController.swift in Sources */,
+				2DB70B1229A23487000E0457 /* FavoritesCellView.swift in Sources */,
 				2D23ED6629A0054200EAF8AF /* NewsCellView.swift in Sources */,
 				2D368A25299EBC530039E7C4 /* ResetPassViewController.swift in Sources */,
 				2D25C0F3299B6A3400B8B084 /* AppDelegate.swift in Sources */,
 				2DDFACAA299D69D100E07A96 /* ProfileViewController.swift in Sources */,
 				2D8E507A299F6FDA00A3A6A7 /* FavoritesViewController.swift in Sources */,
 				2D25C0F5299B6A3400B8B084 /* SceneDelegate.swift in Sources */,
+				2DB70B1B29A29CFC000E0457 /* CurrentUser.swift in Sources */,
 				2D23ED6429A004EC00EAF8AF /* NewsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
