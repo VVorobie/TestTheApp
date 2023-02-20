@@ -8,14 +8,18 @@
 import Foundation
 
 struct CurrentUser {
-    static var id: Int = 0
-    static var name: String = ""
-    static var email: String = "test@mail.ru"
-    static var photo: String = "Фото"
+    static var id: String? = nil
+    static var name: String? = nil
+    static var email: String? = nil
+    static var photo: String? = nil
     
-    func getCurrentUser (_ email: String?){
-        if let mail = email {
-            CurrentUser.email = mail
-        }
-    }
+//    func getCurrentUser (_ email: String) {
+//        if !Persistance.shared.getCurrentUser(userEmail: email){
+//            Persistance.shared.createNewUser(email)
+//            if !Persistance.shared.getCurrentUser(userEmail: email){
+//                print ("Невозможно создать пользователя")
+//            }
+//        }
+//    }
+    
 }

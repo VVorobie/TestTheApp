@@ -8,12 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-protocol RegistrationViewControllerDelegate: AnyObject {
-    func newUserDidOccur()
-}
-
 class RegistrationViewController: UIViewController {
-    weak var delegate: RegistrationViewControllerDelegate?
     
     private var registrationView: AuthView { view as! AuthView }
     private var email: String { registrationView.emailTextField.text! }
@@ -52,8 +47,13 @@ class RegistrationViewController: UIViewController {
       Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
         guard error == nil else { return } //------------------Alert
           //---------------------------------Alert
-          self.delegate?.newUserDidOccur()
-          self.navigationController?.popViewController(animated: true)          
+          Persistance.shared.createNewUser(email)
+          let _ = Persistance.shared.getCurrentUser(userEmail: email)
+          if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") {
+            vc.view.frame = self.view.bounds
+            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.isNavigationBarHidden = true
+          }
       }
     }
         

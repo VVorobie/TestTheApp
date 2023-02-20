@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ResetPassViewController: UIViewController {
 
@@ -32,53 +33,24 @@ class ResetPassViewController: UIViewController {
     
     
     // MARK: - Firebase
-
     private func resetPass(with email: String) {
-//      Auth.auth().signIn(withEmail: email, password: password) { result, error in
-//        guard error == nil else { return } //----------------------
-//          if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") {
-//            vc.view.frame = self.view.bounds
-//            self.navigationController?.pushViewController(vc, animated: true)
-//            self.navigationController?.isNavigationBarHidden = true
-//          }
-//      }
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let errorRecieved = error {
+                print (errorRecieved) // --------------------------
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
     }
     
     // MARK: - Action Handlers
-
-    @objc
-    private func handleLogin() {
-        resetPass(with: email)
-    }
-
-    @objc
-    private func handleRegistration() {
-      let vc = RegistrationViewController()
-      navigationController?.pushViewController(vc, animated: true)
-      self.navigationController?.isNavigationBarHidden = true
-    }
     
     @objc func handleResetPass() {
-        
+        resetPass(with: email)
     }
     
     private func configureDelegatesAndHandlers() {
-//        resetPassView.emailTextField.delegate = self
-        resetPassView.enterButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        resetPassView.enterButton.addTarget(self, action: #selector(handleResetPass), for: .touchUpInside)
     }
-    
 }
-//
-//// MARK: - UITextFieldDelegate
-//
-//extension AuthViewController: UITextFieldDelegate {
-//  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//    if authView.emailTextField.isFirstResponder, authView.passwordTextField.text!.isEmpty {
-//        authView.passwordTextField.becomeFirstResponder()
-//    } else {
-//      textField.resignFirstResponder()
-//    }
-//    return true
-//  }
-//
-//}
+

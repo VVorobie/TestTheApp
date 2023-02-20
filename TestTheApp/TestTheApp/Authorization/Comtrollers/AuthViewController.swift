@@ -46,14 +46,20 @@ class AuthViewController: UIViewController {
     // MARK: - Firebase
 
     private func login(with email: String, password: String) {
-//      Auth.auth().signIn(withEmail: email, password: password) { result, error in
-//        guard error == nil else { return } //----------------------
+      Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        guard error == nil else { return } //----------------------
+          if !Persistance.shared.getCurrentUser(userEmail: email) {
+              Persistance.shared.createNewUser(email)
+              if !Persistance.shared.getCurrentUser(userEmail: email){
+                  print ("Пользователь не сохраняется")//----------------------
+              }
+          }
           if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") {
             vc.view.frame = self.view.bounds
             self.navigationController?.pushViewController(vc, animated: true)
             self.navigationController?.isNavigationBarHidden = true
           }
-//      }
+      }
     }
     
     // MARK: - Action Handlers

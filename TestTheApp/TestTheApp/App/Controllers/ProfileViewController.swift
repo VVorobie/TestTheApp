@@ -12,9 +12,9 @@ final class ProfileViewController: UIViewController {
     private var profileView: ProfileView { view as! ProfileView }
     
     lazy var model: ProfileViewModel = {
-        return ProfileViewModel(photoName: CurrentUser.photo,
+        return ProfileViewModel(photoName: CurrentUser.photo ?? "Фото",
                                 name: CurrentUser.name,
-                                email: CurrentUser.email)
+                                email: CurrentUser.email ?? "")
     }()
     
     // MARK: - View Controller Lifecycle Methods
