@@ -25,13 +25,14 @@ class AuthView: UIView {
     
     var emailTextField: PaddingTextField! {
       didSet {
-        emailTextField.textContentType = .emailAddress
+//        emailTextField.textContentType = .emailAddress
       }
     }
     
     var passwordTextField: PaddingTextField! {
       didSet {
-        passwordTextField.textContentType = .password
+          passwordTextField.isSecureTextEntry = true
+//        passwordTextField.textContentType = .password
       }
     }
 
@@ -183,7 +184,6 @@ class AuthView: UIView {
       textfield.placeholder = placeholder
       textfield.tintColor = Colors.textTextField
       textfield.font = Fonts.sfProNormal.withSize(17)
-//        textfield.textAlignment = .center
       textfield.translatesAutoresizingMaskIntoConstraints = false
       return textfield
     }

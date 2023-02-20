@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class ProfileViewController: UIViewController {
 
@@ -31,10 +32,23 @@ final class ProfileViewController: UIViewController {
     // MARK: - Action Handlers
     
     @objc private func handlerExit() {
-        navigationController?.popToRootViewController(animated: true)
+        exitCurrentUser()
     }
 
     func configureDelegatesAndHandlers() {
         profileView.exitButton.addTarget(self, action: #selector(handlerExit), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    private func exitCurrentUser () {
+        Alert.exit.call(self, { _ in
+            try? Auth.auth().signOut()
+            CurrentUser.email = nil
+            CurrentUser.name = nil
+            CurrentUser.id = nil
+            CurrentUser.photo = nil
+            self.navigationController?.popToRootViewController(animated: true)
+        }, nil)
     }
 }

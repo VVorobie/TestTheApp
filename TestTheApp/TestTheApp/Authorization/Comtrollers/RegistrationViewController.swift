@@ -44,17 +44,32 @@ class RegistrationViewController: UIViewController {
         // MARK: - Firebase
 
     private func registration(email: String, password: String) {
-      Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-        guard error == nil else { return } //------------------Alert
-          //---------------------------------Alert
-          Persistance.shared.createNewUser(email)
-          let _ = Persistance.shared.getCurrentUser(userEmail: email)
-          if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") {
-            vc.view.frame = self.view.bounds
-            self.navigationController?.pushViewController(vc, animated: true)
-            self.navigationController?.isNavigationBarHidden = true
-          }
-      }
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if error != nil {
+                self.registrationFault()
+                return
+            } else { self.registrationSuccess(email) }
+        }
+    }
+    
+    private func registrationFault () {
+        if email == "" || password == "" {
+            Alert.emtyField.call(self, nil, nil)
+        } else {
+            Alert.mailFailed.call(self, nil, nil)
+        }
+    }
+    
+    private func registrationSuccess (_ email: String){
+        if !Persistance.shared.getCurrentUser(userEmail: email) {
+            Persistance.shared.createNewUser(email)
+            let _ = Persistance.shared.getCurrentUser(userEmail: email)
+        }
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarController") {
+          vc.view.frame = view.bounds
+          navigationController?.pushViewController(vc, animated: true)
+          navigationController?.isNavigationBarHidden = true
+        }
     }
         
         // MARK: - Action Handlers
@@ -74,8 +89,7 @@ class RegistrationViewController: UIViewController {
             registrationView.passwordTextField.delegate = self
             registrationView.enterButton.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
             registrationView.alternativeButton.addTarget(self, action: #selector(handleLogin),for: .touchUpInside)
-        }
-        
+        }        
     }
 
     // MARK: - UITextFieldDelegate

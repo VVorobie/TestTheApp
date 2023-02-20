@@ -43,23 +43,35 @@ class AuthViewController: UIViewController {
         authView.passwordTextField.text = ""
     }
     
-    // MARK: - Firebase
+    // MARK: - Firebase login
 
     private func login(with email: String, password: String) {
       Auth.auth().signIn(withEmail: email, password: password) { result, error in
-        guard error == nil else { return } //----------------------
-          if !Persistance.shared.getCurrentUser(userEmail: email) {
-              Persistance.shared.createNewUser(email)
-              if !Persistance.shared.getCurrentUser(userEmail: email){
-                  print ("Пользователь не сохраняется")//----------------------
-              }
-          }
-          if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") {
-            vc.view.frame = self.view.bounds
-            self.navigationController?.pushViewController(vc, animated: true)
-            self.navigationController?.isNavigationBarHidden = true
-          }
+          if error != nil {
+              self.loginFault()
+              return
+          } else { self.loginSuccess(email) }
       }
+    }
+    
+    private func loginFault () {
+        if email == "" || password == "" {
+            Alert.emtyField.call(self, nil, nil)
+        } else {
+            Alert.identitiesFault.call(self, nil, nil)
+        }
+    }
+    
+    private func loginSuccess (_ email: String){
+        if !Persistance.shared.getCurrentUser(userEmail: email) {
+            Persistance.shared.createNewUser(email)
+            let _ = Persistance.shared.getCurrentUser(userEmail: email)
+        }
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarController") {
+          vc.view.frame = view.bounds
+          navigationController?.pushViewController(vc, animated: true)
+          navigationController?.isNavigationBarHidden = true
+        }
     }
     
     // MARK: - Action Handlers
@@ -80,10 +92,6 @@ class AuthViewController: UIViewController {
         let vc = ResetPassViewController()
         self.navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(vc, animated: true)
-        
-        
-
-//        item?.backButtonTitle = "Назад"
     }
     
     private func configureDelegatesAndHandlers() {
@@ -93,7 +101,6 @@ class AuthViewController: UIViewController {
         authView.alternativeButton.addTarget(self, action: #selector(handleRegistration),for: .touchUpInside)
         authView.resetPassButton.addTarget(self, action: #selector(handleResetPass),for: .touchUpInside)
     }
-    
 }
 
 // MARK: - UITextFieldDelegate

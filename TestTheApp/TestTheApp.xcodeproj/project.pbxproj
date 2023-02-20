@@ -20,6 +20,7 @@
 		2D25C0FC299B6A3600B8B084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D25C0FB299B6A3600B8B084 /* Assets.xcassets */; };
 		2D25C0FF299B6A3600B8B084 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D25C0FD299B6A3600B8B084 /* LaunchScreen.storyboard */; };
 		2D2C211F29A3506D00C1AB71 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C211E29A3506D00C1AB71 /* Persistance.swift */; };
+		2D2C212329A3988700C1AB71 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C212229A3988700C1AB71 /* Alerts.swift */; };
 		2D368A17299E07570039E7C4 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A16299E07570039E7C4 /* AuthView.swift */; };
 		2D368A19299E07F40039E7C4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A18299E07F40039E7C4 /* RegistrationViewController.swift */; };
 		2D368A1C299E0ABD0039E7C4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A1B299E0ABD0039E7C4 /* AuthViewModel.swift */; };
@@ -60,6 +61,7 @@
 		2D25C0FE299B6A3600B8B084 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D25C100299B6A3600B8B084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D2C211E29A3506D00C1AB71 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		2D2C212229A3988700C1AB71 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		2D368A16299E07570039E7C4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		2D368A18299E07F40039E7C4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2D368A1B299E0ABD0039E7C4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				2D368A1E299E0EE40039E7C4 /* Fonts.swift */,
 				2D368A20299E15110039E7C4 /* Colors.swift */,
+				2D2C212229A3988700C1AB71 /* Alerts.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				2D368A17299E07570039E7C4 /* AuthView.swift in Sources */,
 				2D8E5076299F6A4B00A3A6A7 /* MapViewController.swift in Sources */,
 				2D23ED6229A0043D00EAF8AF /* NewsViewController.swift in Sources */,
+				2D2C212329A3988700C1AB71 /* Alerts.swift in Sources */,
 				2D368A1C299E0ABD0039E7C4 /* AuthViewModel.swift in Sources */,
 				2D368A27299EBC7E0039E7C4 /* ResetPassView.swift in Sources */,
 				2D23ED5D299FA4B300EAF8AF /* MapData.swift in Sources */,

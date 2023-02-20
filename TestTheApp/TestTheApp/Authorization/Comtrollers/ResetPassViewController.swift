@@ -31,16 +31,26 @@ class ResetPassViewController: UIViewController {
         resetPassView.emailTextField.text = ""
     }
     
-    
     // MARK: - Firebase
     private func resetPass(with email: String) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if let errorRecieved = error {
-                print (errorRecieved) // --------------------------
-            } else {
-                self.navigationController?.popToRootViewController(animated: true)
-            }
+            if error != nil {
+                self.resetFault()
+                return
+            } else { self.resetSuccess(email) }
         }
+    }
+    
+    private func resetFault () {
+        if email == "" {
+           Alert.emtyField.call(self, nil, nil)
+        } else {
+            Alert.mailFailed.call(self, nil, nil)
+        }
+    }
+    
+    private func resetSuccess (_ email: String){
+        navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - Action Handlers
