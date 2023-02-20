@@ -40,11 +40,11 @@ final class ProfileViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
+    // Выход из программы текущего пользователя
     private func exitCurrentUser () {
-        Alert.exit.call(self, { _ in
-            try? Auth.auth().signOut()
-            CurrentUser.email = nil
+        Alert.exit.call(self, { _ in  // вызов оповещения
+            try? Auth.auth().signOut() // затем выход в FireBase
+            CurrentUser.email = nil   // обнуление даннх текущего пользователя
             CurrentUser.name = nil
             CurrentUser.id = nil
             CurrentUser.photo = nil

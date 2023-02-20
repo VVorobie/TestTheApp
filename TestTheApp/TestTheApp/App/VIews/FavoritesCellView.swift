@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+/// Класс изображения для ячейки таблицы Избранное
 final class FavoritesCellView: UIView {
-
+    // Фото
     private lazy var picture: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 22
@@ -17,27 +17,27 @@ final class FavoritesCellView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Полотно, закрывающее нижнюю часть фото
     private lazy var coveringView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Картинка сердечка избранное
     private lazy var favoritePicture: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Надпись даты
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProNormal.withSize(13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    //Надпись заголовка
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProSemi.withSize(16)
@@ -46,17 +46,20 @@ final class FavoritesCellView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-      
+    
+    // MARK: - Инициализаторы
+    // Переписанный инициализатор для установки суб изображений
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         setupView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+ 
+    // MARK: - Subviews Setup
+    // Конфигурация в соответствии с моделью
     func config (with model: NewsViewModel) {
         picture.image = UIImage(named: model.imageName)
         if model.favorite { favoritePicture.image = UIImage(named: "Избранное") }
@@ -64,9 +67,7 @@ final class FavoritesCellView: UIView {
         dateLabel.text = model.date
         titleLabel.text = model.title
     }
-    
-    // MARK: - Subviews Setup
-    
+   
     private func setupView() {
         backgroundColor = .white //#FFFFFF
         layer.cornerRadius = 22
@@ -96,7 +97,6 @@ final class FavoritesCellView: UIView {
 
             dateLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 6),
             dateLabel.topAnchor.constraint(equalTo: coveringView.topAnchor, constant: 11),
-//            dateLabel.widthAnchor.constraint(equalToConstant: 72),
             dateLabel.heightAnchor.constraint(equalToConstant: 18),
 
             favoritePicture.trailingAnchor.constraint(equalTo: coveringView.trailingAnchor, constant: -10),

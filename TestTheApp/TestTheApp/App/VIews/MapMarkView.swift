@@ -7,9 +7,9 @@
 
 import UIKit
 import MapKit
-
+/// Вью Аннотации для установки на крту
 final class MapMarkView: MKAnnotationView {
-    
+    // Инициализатор  подключает изображение точки и смещает центр для точного указаня места
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         image = UIImage(named: "КартаЗ")

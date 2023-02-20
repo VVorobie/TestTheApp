@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/// СТруктура данных для новостей
 struct NewsData {
     static var models = [
         NewsViewModel(id: 0, imageName: "Image", date: "01 февраля", title: "Lorem ipsum dolor sit", content: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore", favorite: false),
@@ -17,4 +17,14 @@ struct NewsData {
         NewsViewModel(id: 5, imageName: "Image", date: "06 февраля", title: "Lorem ipsum dolor sit", content: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore", favorite: true),
         NewsViewModel(id: 6, imageName: "Image", date: "07 февраля", title: "Lorem ipsum dolor sit", content: "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore", favorite: false)
     ]
+    
+    static func favorites() -> [NewsViewModel] {
+        var favorites: [NewsViewModel] = []
+        for model in models {
+            if model.favorite {
+                favorites.append(model)
+            }
+        }
+        return favorites
+    }
 }

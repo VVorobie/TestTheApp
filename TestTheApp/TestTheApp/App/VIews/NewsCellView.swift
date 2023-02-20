@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+/// Вью для ячейки таблицы Новости
 final class NewsCellView: UIView {
-
+    // Фотография
     private lazy var picture: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 22
@@ -17,41 +17,43 @@ final class NewsCellView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Полотно, закрывающее нижнюю часть фото
     private lazy var coveringView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // изображение сердечка избранное
     private lazy var favoritePicture: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Надпись даты
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProNormal.withSize(13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // Надпись заголовка
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProSemi.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // текстовое поле содержания статьи
     private lazy var contentTextView: UITextView = {
         let text = UITextView()
         text.font = Fonts.sfProNormal.withSize(13)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
-      
+    
+    // MARK: - Инициализаторы
+    // Переписанный инициализатор для установки суб изображений
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -61,7 +63,9 @@ final class NewsCellView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    // MARK: - Subviews Setup
+    // Конфигурация изображения в соответствии с моделью
     func config (with model: NewsViewModel) {
         picture.image = UIImage(named: model.imageName)
         if model.favorite { favoritePicture.image = UIImage(named: "Избранное") }
@@ -70,8 +74,6 @@ final class NewsCellView: UIView {
         titleLabel.text = model.title
         contentTextView.text = model.content
     }
-    
-    // MARK: - Subviews Setup
     
     private func setupView() {
         backgroundColor = .white //#FFFFFF
@@ -103,7 +105,6 @@ final class NewsCellView: UIView {
 
             dateLabel.leadingAnchor.constraint(equalTo: coveringView.leadingAnchor, constant: 18),
             dateLabel.topAnchor.constraint(equalTo: coveringView.topAnchor, constant: 9),
-//            dateLabel.widthAnchor.constraint(equalToConstant: 72),
             dateLabel.heightAnchor.constraint(equalToConstant: 18),
 
             favoritePicture.trailingAnchor.constraint(equalTo: coveringView.trailingAnchor, constant: -19),

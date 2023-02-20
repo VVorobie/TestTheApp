@@ -7,18 +7,16 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+/// Контроллер таблицы Избранное
+final class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    @IBOutlet weak var favoritesLabel: UILabel!
     
     var models: [NewsViewModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        models = NewsData.models
+        models = NewsData.favorites()
         collectionView.allowsSelection = true
     }
    

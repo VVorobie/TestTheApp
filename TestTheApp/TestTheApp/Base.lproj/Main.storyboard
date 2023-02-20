@@ -148,7 +148,6 @@
                     <navigationItem key="navigationItem" id="LcP-p3-sqE"/>
                     <connections>
                         <outlet property="collectionView" destination="P6U-hv-Ue4" id="p5I-Ty-lzq"/>
-                        <outlet property="favoritesLabel" destination="wDT-qx-vt1" id="U5f-2N-Yn6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZZ-7T-tE5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -212,7 +211,6 @@
                     <tabBarItem key="tabBarItem" title="Новости" image="Новости" id="dHM-GE-Rmd"/>
                     <navigationItem key="navigationItem" id="UFd-9X-6dV"/>
                     <connections>
-                        <outlet property="newsLabel" destination="PEl-wq-12U" id="ubK-h7-ZNx"/>
                         <outlet property="tableView" destination="vvD-eE-uMU" id="2XP-jr-ylg"/>
                     </connections>
                 </viewController>
@@ -231,9 +229,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="yee-EK-9WQ" kind="relationship" relationship="viewControllers" id="cbu-W6-avw"/>
                         <segue destination="fED-fw-ssH" kind="relationship" relationship="viewControllers" id="e7x-cb-j9R"/>
                         <segue destination="4Og-7T-xhB" kind="relationship" relationship="viewControllers" id="Vjj-Ta-9M4"/>
+                        <segue destination="yee-EK-9WQ" kind="relationship" relationship="viewControllers" id="cbu-W6-avw"/>
                         <segue destination="aky-fx-YCd" kind="relationship" relationship="viewControllers" id="xHw-ZG-hB6"/>
                     </connections>
                 </tabBarController>

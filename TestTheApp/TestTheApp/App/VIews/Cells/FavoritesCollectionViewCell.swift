@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+/// Ячейка для окна Избранное
 final class FavoritesCollectionViewCell: UICollectionViewCell {
-    
+    // Вью ячейки
     private lazy var favoritesCellView = FavoritesCellView()
     
     func config(with model: NewsViewModel) {
@@ -19,8 +19,7 @@ final class FavoritesCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         setupConstraints()
     }
-
-
+    
     private func setupConstraints () {
         contentView.addSubview(favoritesCellView)
         

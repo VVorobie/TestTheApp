@@ -8,7 +8,8 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+/// Контроллер изображения карты
+final class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,6 +22,7 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    // Создание вью для аннотации
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         return MapMarkView(annotation: annotation, reuseIdentifier: nil)
     }

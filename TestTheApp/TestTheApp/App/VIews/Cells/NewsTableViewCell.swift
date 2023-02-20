@@ -6,11 +6,11 @@
 //
 
 import UIKit
-
+/// Ячейка для таблицы экрана Новости
 final class NewsTableViewCell: UITableViewCell {
-
+    // вью ячейки
     private lazy var newsCellView = NewsCellView()
-    
+    //Конфигурация вью в соответствии с вью-моделью
     func config(with model: NewsViewModel) {
         newsCellView.config(with: model)
     }
@@ -19,7 +19,6 @@ final class NewsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupConstraints()
     }
-
 
     private func setupConstraints () {
         contentView.addSubview(newsCellView)

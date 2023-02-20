@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+/// Изображение для окна профиля
 final class ProfileView: UIView {
-    
+    // фото профиля
     private lazy var picture: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 60
@@ -17,7 +17,7 @@ final class ProfileView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    // Заголовок окна
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProBold.withSize(34)
@@ -25,7 +25,7 @@ final class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // Подкладка под текстовое поле (Pad)
     private var namePadView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 20
@@ -34,7 +34,7 @@ final class ProfileView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Поле имя
     lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.font = Fonts.sfProNormal.withSize(17)
@@ -43,7 +43,7 @@ final class ProfileView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
+    // Подкладка под надпись
     private var emailPadView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 20
@@ -52,7 +52,7 @@ final class ProfileView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Надпись почты
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProNormal.withSize(17)
@@ -60,7 +60,7 @@ final class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // Кнопка Выход
     lazy var exitButton: UIButton = {
         let button = UIButton()
         var attribString = NSAttributedString(string: "Выйти", attributes: [.font: Fonts.sfProNormal.withSize(17), .foregroundColor: Colors.redExitButton])
@@ -70,20 +70,22 @@ final class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-      
+  
+    // MARK: - Инициализаторы
+    // Переписанный инициализатор для установки суб изображений и конфигурации с моделью
     convenience init(model: ProfileViewModel) {
         self.init(frame: .zero)
         setupView()
         config(with: model)
     }
-    
+
+    // MARK: - Subviews Setup
+    //Конфигурация  в соответствии с моделью
     func config (with model: ProfileViewModel) {
         picture.image = UIImage(named: model.photoName)
         nameTextField.text = model.name
         emailLabel.text = model.email
     }
-    
-    // MARK: - Subviews Setup
     
     private func setupView() {
         backgroundColor = .white //#FFFFFF
@@ -104,7 +106,6 @@ final class ProfileView: UIView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant:  30),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 49),
-//            titleLabel.widthAnchor.constraint(equalToConstant: 152),
             titleLabel.heightAnchor.constraint(equalToConstant: 41),
             
             picture.centerXAnchor.constraint(equalTo: centerXAnchor),

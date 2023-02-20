@@ -7,11 +7,10 @@
 
 import UIKit
 import FirebaseAuth
-
-class ResetPassViewController: UIViewController {
+/// Контроллер окна сброса пароля (устроен аналогично контроллеру авторизации)
+final class ResetPassViewController: UIViewController {
 
     private var resetPassView: ResetPassView{ view as! ResetPassView }
-
     private var email: String { resetPassView.emailTextField.text! }
     
     // MARK: - View Controller Lifecycle Methods
@@ -40,6 +39,18 @@ class ResetPassViewController: UIViewController {
             } else { self.resetSuccess(email) }
         }
     }
+  
+    // MARK: - Action Handlers
+    
+    @objc func handleResetPass() {
+        resetPass(with: email)
+    }
+    
+    private func configureDelegatesAndHandlers() {
+        resetPassView.enterButton.addTarget(self, action: #selector(handleResetPass), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
     
     private func resetFault () {
         if email == "" {
@@ -52,15 +63,6 @@ class ResetPassViewController: UIViewController {
     private func resetSuccess (_ email: String){
         navigationController?.popToRootViewController(animated: true)
     }
-    
-    // MARK: - Action Handlers
-    
-    @objc func handleResetPass() {
-        resetPass(with: email)
-    }
-    
-    private func configureDelegatesAndHandlers() {
-        resetPassView.enterButton.addTarget(self, action: #selector(handleResetPass), for: .touchUpInside)
-    }
+  
 }
 

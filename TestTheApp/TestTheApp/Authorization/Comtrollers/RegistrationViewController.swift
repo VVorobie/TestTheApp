@@ -7,41 +7,31 @@
 
 import UIKit
 import FirebaseAuth
-
-class RegistrationViewController: UIViewController {
+/// Контроллер окна регистрации (устроен аналогично контроллеру авторизации)
+final class RegistrationViewController: UIViewController {
     
     private var registrationView: AuthView { view as! AuthView }
     private var email: String { registrationView.emailTextField.text! }
     private var password: String { registrationView.passwordTextField.text! }
+  
+    // MARK: - View Controller Lifecycle Methods
 
-    //    // Hides tab bar when view controller is presented
-        override var hidesBottomBarWhenPushed: Bool { get { true } set {} }
-    //    self.navigationController?.isNavigationBarHidden = true
-
+    override func loadView() {
+        view = AuthView(model: .registration)
+    }
         
-        // MARK: - View Controller Lifecycle Methods
-
-        override func loadView() {
-            view = AuthView(model: .registration)
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureDelegatesAndHandlers()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        registrationView.emailTextField.text = ""
+        registrationView.passwordTextField.text = ""
+    }
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            configureDelegatesAndHandlers()
-        }
-        
-        override func viewWillDisappear(_ animated: Bool) {
-          super.viewWillDisappear(animated)
-          view.endEditing(true)
-        }
-
-        override func viewDidDisappear(_ animated: Bool) {
-          super.viewDidDisappear(animated)
-            registrationView.emailTextField.text = ""
-            registrationView.passwordTextField.text = ""
-        }
-        
-        // MARK: - Firebase
+    // MARK: - Firebase
 
     private func registration(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -51,6 +41,25 @@ class RegistrationViewController: UIViewController {
             } else { self.registrationSuccess(email) }
         }
     }
+    
+    // MARK: - Action Handlers
+
+    @objc
+    private func handleRegistration() {
+            registration(email: email, password: password)
+    }
+    
+    @objc
+    private func handleLogin() {
+        navigationController?.popViewController(animated: true)
+    }
+        
+    private func configureDelegatesAndHandlers() {
+        registrationView.enterButton.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
+        registrationView.alternativeButton.addTarget(self, action: #selector(handleLogin),for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
     
     private func registrationFault () {
         if email == "" || password == "" {
@@ -71,36 +80,5 @@ class RegistrationViewController: UIViewController {
           navigationController?.isNavigationBarHidden = true
         }
     }
-        
-        // MARK: - Action Handlers
+}
 
-        @objc
-        private func handleRegistration() {
-            registration(email: email, password: password)
-        }
-    
-        @objc
-        private func handleLogin() {
-            navigationController?.popViewController(animated: true)
-        }
-        
-        private func configureDelegatesAndHandlers() {
-            registrationView.emailTextField.delegate = self
-            registrationView.passwordTextField.delegate = self
-            registrationView.enterButton.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
-            registrationView.alternativeButton.addTarget(self, action: #selector(handleLogin),for: .touchUpInside)
-        }        
-    }
-
-    // MARK: - UITextFieldDelegate
-
-    extension RegistrationViewController: UITextFieldDelegate {
-      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if registrationView.emailTextField.isFirstResponder, registrationView.passwordTextField.text!.isEmpty {
-            registrationView.passwordTextField.becomeFirstResponder()
-        } else {
-          textField.resignFirstResponder()
-        }
-        return true
-      }
-    }

@@ -7,10 +7,11 @@
 
 import UIKit
 
+/// Контроллер изображения статью
 class ArticleViewController: UIViewController {
     
     private var articleView: ArticleView { view as! ArticleView }
-    
+    // Вью Модель поступает из Избранного или Новостей
     var model: NewsViewModel?
     
     // MARK: - View Controller Lifecycle Methods
@@ -19,7 +20,7 @@ class ArticleViewController: UIViewController {
         if let viewModel = model {
             view = ArticleView(model: viewModel)
         } else {
-            view = ArticleView()
+            view = ArticleView()  // если модель не поступила - пустой экран
         }        
     }
     

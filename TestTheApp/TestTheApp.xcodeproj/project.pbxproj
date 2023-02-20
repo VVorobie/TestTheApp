@@ -26,7 +26,6 @@
 		2D368A1C299E0ABD0039E7C4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A1B299E0ABD0039E7C4 /* AuthViewModel.swift */; };
 		2D368A1F299E0EE40039E7C4 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A1E299E0EE40039E7C4 /* Fonts.swift */; };
 		2D368A21299E15110039E7C4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A20299E15110039E7C4 /* Colors.swift */; };
-		2D368A23299E7C540039E7C4 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A22299E7C540039E7C4 /* UITextField+Padding.swift */; };
 		2D368A25299EBC530039E7C4 /* ResetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A24299EBC530039E7C4 /* ResetPassViewController.swift */; };
 		2D368A27299EBC7E0039E7C4 /* ResetPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D368A26299EBC7E0039E7C4 /* ResetPassView.swift */; };
 		2D41BAC6299B7DF5000637BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D41BAC5299B7DF5000637BD /* GoogleService-Info.plist */; };
@@ -35,6 +34,9 @@
 		2D8E5076299F6A4B00A3A6A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E5075299F6A4B00A3A6A7 /* MapViewController.swift */; };
 		2D8E507A299F6FDA00A3A6A7 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E5079299F6FDA00A3A6A7 /* FavoritesViewController.swift */; };
 		2D8E507C299F72C800A3A6A7 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E507B299F72C700A3A6A7 /* ArticleViewController.swift */; };
+		2DB3E89B29A3D4BB008267F0 /* SFPRODISPLAYREGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3E89229A3D4BA008267F0 /* SFPRODISPLAYREGULAR.OTF */; };
+		2DB3E89C29A3D4BB008267F0 /* SFPRODISPLAYBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3E89329A3D4BA008267F0 /* SFPRODISPLAYBOLD.OTF */; };
+		2DB3E8A029A3D4BB008267F0 /* SFPRODISPLAYMEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 2DB3E89729A3D4BB008267F0 /* SFPRODISPLAYMEDIUM.OTF */; };
 		2DB70B1029A217F6000E0457 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B0F29A217F5000E0457 /* ArticleView.swift */; };
 		2DB70B1229A23487000E0457 /* FavoritesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B1129A23487000E0457 /* FavoritesCellView.swift */; };
 		2DB70B1429A2360F000E0457 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB70B1329A2360F000E0457 /* FavoritesCollectionViewCell.swift */; };
@@ -67,13 +69,15 @@
 		2D368A1B299E0ABD0039E7C4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2D368A1E299E0EE40039E7C4 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		2D368A20299E15110039E7C4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		2D368A22299E7C540039E7C4 /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		2D368A24299EBC530039E7C4 /* ResetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassViewController.swift; sourceTree = "<group>"; };
 		2D368A26299EBC7E0039E7C4 /* ResetPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassView.swift; sourceTree = "<group>"; };
 		2D41BAC5299B7DF5000637BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D8E5075299F6A4B00A3A6A7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D8E5079299F6FDA00A3A6A7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2D8E507B299F72C700A3A6A7 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		2DB3E89229A3D4BA008267F0 /* SFPRODISPLAYREGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYREGULAR.OTF; sourceTree = "<group>"; };
+		2DB3E89329A3D4BA008267F0 /* SFPRODISPLAYBOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYBOLD.OTF; sourceTree = "<group>"; };
+		2DB3E89729A3D4BB008267F0 /* SFPRODISPLAYMEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYMEDIUM.OTF; sourceTree = "<group>"; };
 		2DB70B0F29A217F5000E0457 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		2DB70B1129A23487000E0457 /* FavoritesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCellView.swift; sourceTree = "<group>"; };
 		2DB70B1329A2360F000E0457 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -187,7 +191,6 @@
 			children = (
 				2D25C0F4299B6A3400B8B084 /* SceneDelegate.swift */,
 				2D25C0F2299B6A3400B8B084 /* AppDelegate.swift */,
-				2D368A22299E7C540039E7C4 /* UITextField+Padding.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -212,7 +215,7 @@
 		2D368A1D299E0ECC0039E7C4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2D368A1E299E0EE40039E7C4 /* Fonts.swift */,
+				2DB3E8A329A3D4D5008267F0 /* Fonts */,
 				2D368A20299E15110039E7C4 /* Colors.swift */,
 				2D2C212229A3988700C1AB71 /* Alerts.swift */,
 			);
@@ -240,6 +243,17 @@
 				2D2C211E29A3506D00C1AB71 /* Persistance.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		2DB3E8A329A3D4D5008267F0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2DB3E89329A3D4BA008267F0 /* SFPRODISPLAYBOLD.OTF */,
+				2DB3E89729A3D4BB008267F0 /* SFPRODISPLAYMEDIUM.OTF */,
+				2DB3E89229A3D4BA008267F0 /* SFPRODISPLAYREGULAR.OTF */,
+				2D368A1E299E0EE40039E7C4 /* Fonts.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		2DB70B1529A2383C000E0457 /* Cells */ = {
@@ -316,10 +330,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB3E8A029A3D4BB008267F0 /* SFPRODISPLAYMEDIUM.OTF in Resources */,
 				2D25C0FF299B6A3600B8B084 /* LaunchScreen.storyboard in Resources */,
 				2D41BAC6299B7DF5000637BD /* GoogleService-Info.plist in Resources */,
 				2D25C0FC299B6A3600B8B084 /* Assets.xcassets in Resources */,
 				2D25C0FA299B6A3400B8B084 /* Main.storyboard in Resources */,
+				2DB3E89B29A3D4BB008267F0 /* SFPRODISPLAYREGULAR.OTF in Resources */,
+				2DB3E89C29A3D4BB008267F0 /* SFPRODISPLAYBOLD.OTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +353,6 @@
 				2D368A21299E15110039E7C4 /* Colors.swift in Sources */,
 				2D368A19299E07F40039E7C4 /* RegistrationViewController.swift in Sources */,
 				2D2C211F29A3506D00C1AB71 /* Persistance.swift in Sources */,
-				2D368A23299E7C540039E7C4 /* UITextField+Padding.swift in Sources */,
 				2DB70B1029A217F6000E0457 /* ArticleView.swift in Sources */,
 				2D23ED6929A0058900EAF8AF /* NewsViewModel.swift in Sources */,
 				2D23ED60299FC2F200EAF8AF /* MapMarkView.swift in Sources */,
@@ -510,7 +526,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestTheApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -542,7 +558,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestTheApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";

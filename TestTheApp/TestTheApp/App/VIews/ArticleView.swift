@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+/// Класс изображения статьи
 final class ArticleView: UIView {
-
+    // Фото стстьи
     private lazy var picture: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 22
@@ -17,40 +17,43 @@ final class ArticleView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // полотно, закрывающее нижнюю часть фотоа
     private lazy var favoritePicture: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Надпись даты
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProNormal.withSize(13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // Заголовоа
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProSemi.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // Содержание стстьи
     private lazy var contentTextView: UITextView = {
         let text = UITextView()
         text.font = Fonts.sfProNormal.withSize(13)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
-      
+
+
     convenience init(model: NewsViewModel) {
         self.init(frame: .zero)
         setupView()
         config(with: model)
     }
-    
+ 
+    // MARK: - Subviews Setup
+    //Конфигурация в соответствии с моделью
     func config (with model: NewsViewModel) {
         picture.image = UIImage(named: model.imageName)
         if model.favorite { favoritePicture.image = UIImage(named: "Избранное") }
@@ -59,9 +62,7 @@ final class ArticleView: UIView {
         titleLabel.text = model.title
         contentTextView.text = model.content
     }
-    
-    // MARK: - Subviews Setup
-    
+   
     private func setupView() {
         backgroundColor = .white //#FFFFFF
         clipsToBounds = true
@@ -84,7 +85,6 @@ final class ArticleView: UIView {
 
             dateLabel.leadingAnchor.constraint(equalTo: picture.leadingAnchor, constant: 15),
             dateLabel.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 15),
-//            dateLabel.widthAnchor.constraint(equalToConstant: 72),
             dateLabel.heightAnchor.constraint(equalToConstant: 18),
 
             favoritePicture.trailingAnchor.constraint(equalTo: picture.trailingAnchor, constant: -23),

@@ -7,8 +7,9 @@
 
 import Foundation
 import MapKit
-
+/// Структура
 struct MapData {
+    //массив для хранения координат пяти точек для нанесения на карту
     static var points = [
         CLLocationCoordinate2D(latitude: 60, longitude: 29),
         CLLocationCoordinate2D(latitude: 59.896701, longitude: 30.677912),
@@ -16,7 +17,7 @@ struct MapData {
         CLLocationCoordinate2D(latitude: 61, longitude: 30),
         CLLocationCoordinate2D(latitude: 58, longitude: 29)
     ]
-
+    // Рассчет региона для показа на карте
     static var region:MKCoordinateRegion = {
         var latMin: CLLocationDegrees = 90
         var latMax: CLLocationDegrees = -90
@@ -34,7 +35,7 @@ struct MapData {
         let span = MKCoordinateSpan(latitudeDelta: 2.2 * latSpam, longitudeDelta: 2.2 * lonSpam)
         return MKCoordinateRegion(center: center, span: span)
     }()
-    
+    // Создание из точек аннотаций для последующего изображения на карте
     static var annotations: [MKAnnotation] = {
         var array: [MKAnnotation] = []
         for point in points {
@@ -44,7 +45,7 @@ struct MapData {
         return array
     }()
 }
-     
+ /// Вспомагательный класс для добавлени я к стандартно аннотации координат
 final class Annotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
          

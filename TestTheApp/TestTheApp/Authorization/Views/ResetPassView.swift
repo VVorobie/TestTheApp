@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
-class ResetPassView: UIView {
-
+/// Вью экрана сброса пароля
+final class ResetPassView: UIView {
+    // MARK: - UI элементы
+    // вью подложки под текстовое поле (Padding)
     lazy var underView: UIView = {
         let view = UIView()
         view.backgroundColor = Colors.backgrounsTextField
@@ -16,7 +17,7 @@ class ResetPassView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Текстовое поле почты
     lazy var emailTextField: UITextField! = {
         let textfield = UITextField()
         textfield.textContentType = .emailAddress
@@ -29,7 +30,7 @@ class ResetPassView: UIView {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         return textfield
     }()
-    
+    // лэйбл описания
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProNormal.withSize(13)
@@ -39,7 +40,7 @@ class ResetPassView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // кнопка ввода
     lazy var enterButton: UIButton = {
       let button = UIButton()
       button.setTitleColor(.white, for: .normal)
@@ -52,12 +53,13 @@ class ResetPassView: UIView {
       return button
     }()
 
+    // MARK: - Инициализация
     convenience init() {
       self.init(frame: .zero)
       setupSubviews()
     }
     
-    // MARK: - Subviews Setup
+    // MARK: - Установка и конфигурация созданных UI-элементов
 
     private func setupSubviews() {
       backgroundColor = Colors.backgrounsView //#F5F5F5
@@ -66,8 +68,8 @@ class ResetPassView: UIView {
     }
     
     private func setupConstraints () {
-        addSubview(underView)
-        addSubview(emailTextField)
+      addSubview(underView)
+      addSubview(emailTextField)
       addSubview(enterButton)
       addSubview(descriptionLabel)
    

@@ -21,8 +21,8 @@ enum Alert: String, Error {
             sender.present(alertController, animated: true, completion: nil)
         case .exit:
             let alertController = UIAlertController(title: "Выход", message: self.rawValue, preferredStyle: .alert)
-            alertController.addAction(.init(title: "Выход", style: .default, handler: handlerYes))
             alertController.addAction(.init(title: "Отмена", style: .default, handler: handlerNo))
+            alertController.addAction(.init(title: "Выход", style: .destructive, handler: handlerYes))
             sender.present(alertController, animated: true, completion: nil)
         }
     }

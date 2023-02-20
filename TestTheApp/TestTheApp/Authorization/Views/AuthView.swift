@@ -7,35 +7,31 @@
 
 import UIKit
 
-class AuthView: UIView {
-
+/// Вью для экрана вторизации
+final class AuthView: UIView {
+    
+    // MARK: - UI элементы
+    // Заголовок
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProBold.withSize(34)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    // надпись "у вас есть пароль"
     private lazy var passPresenceLabel: UILabel = {
         let label = UILabel()
         label.font = Fonts.sfProNormal.withSize(13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    var emailTextField: PaddingTextField! {
-      didSet {
-//        emailTextField.textContentType = .emailAddress
-      }
-    }
-    
-    var passwordTextField: PaddingTextField! {
-      didSet {
-          passwordTextField.isSecureTextEntry = true
-//        passwordTextField.textContentType = .password
-      }
-    }
-
+    // вью подложки под текстовое поле (Padding)
+    private var padViewEmail: UIView!
+    private var padViewPassword: UIView!
+    // поля ввода логина и пароля
+    var emailTextField: UITextField!
+    var passwordTextField: UITextField!
+    // кнопка ввода
     lazy var enterButton: UIButton = {
       let button = UIButton()
       button.setTitleColor(.white, for: .normal)
@@ -46,13 +42,13 @@ class AuthView: UIView {
       button.translatesAutoresizingMaskIntoConstraints = false
       return button
     }()
-    
+    // кнопка перехода к регистрации (или наоборот)
     lazy var alternativeButton: UIButton = {
       let button = UIButton()
       button.translatesAutoresizingMaskIntoConstraints = false
       return button
     }()
-    
+    // кнопка перехода к сбросу пароля
     lazy var resetPassButton: UIButton = {
       let button = UIButton()
       button.setTitleColor(.secondaryLabel, for: .normal)
@@ -62,22 +58,26 @@ class AuthView: UIView {
       return button
     }()
     
+    // MARK: - Инициализация
+    // Инициализатор для выбора типа вью и запуска конфигураций
     convenience init(model: AuthViewModel.ViewType) {
       self.init(frame: .zero)
       setupSubviews()
       config(with: model)
     }
     
-    func config(with model: AuthViewModel.ViewType) {
+    // MARK: - Установка и конфигурация созданных UI-элементов
+    // Конфигурация элементов вью в зависимости от вида вида вью
+    private func config(with model: AuthViewModel.ViewType) {
         switch model {
-        case .authorization:
+        case .authorization: // конфигурируем окно авторизации
             titleLabel.text = "Вход"
             enterButton.setTitle("Вход", for: .normal)
             passPresenceLabel.text = "Нет аккаунта?"
             setupPassPresenceLable(68, 94)
             setupAlternativeButton("Зарегистрироваться", 140)
             setupResetPassButton()
-        case .registration:
+        case .registration: // конфигурируем окно регистрации
             titleLabel.text = "Регистрация"
             enterButton.setTitle("Зарегистрироваться", for: .normal)
             setupPassPresenceLable(100, 130)
@@ -85,30 +85,21 @@ class AuthView: UIView {
             setupAlternativeButton("Войти", 41)
         }
     }
-    
-    
-    // MARK: - Subviews Setup
-
+    // установка элементов
     private func setupSubviews() {
+      // Конфиг самой вью
       backgroundColor = Colors.backgrounsView //#F5F5F5
       clipsToBounds = true
-
-      setupEmailTextfield()
-      setupPasswordTextField()
-      setupConstraints()
-
-    }
-
-    private func setupEmailTextfield() {
+      // Создание текстовых полей
+      padViewEmail = padForText()
       emailTextField = textField(placeholder: "Почта")
-      emailTextField.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    private func setupPasswordTextField() {
+      padViewPassword = padForText()
       passwordTextField = textField(placeholder: "Пароль")
-      passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+      passwordTextField.isSecureTextEntry = true
+      // Установка констрейтов
+      setupConstraints()
     }
-    
+    // Конфигурация надписи
     private func setupPassPresenceLable(_ leadingConstraint: CGFloat, _ width: CGFloat) {
         addSubview(passPresenceLabel)
         NSLayoutConstraint.activate([
@@ -118,7 +109,7 @@ class AuthView: UIView {
         passPresenceLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
-    
+    // Конфигурация алтернативы
     private func setupAlternativeButton(_ text: String, _ width: CGFloat) {
         var title = NSAttributedString(string: text, attributes: [.font: Fonts.sfProBold.withSize(13), .foregroundColor: Colors.blueButton])
         alternativeButton.setAttributedTitle(title, for: .normal)
@@ -134,7 +125,7 @@ class AuthView: UIView {
         alternativeButton.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
-    
+    // Конфигурация кнопки сброса пароля
     private func setupResetPassButton() {
         addSubview(resetPassButton)
         NSLayoutConstraint.activate([
@@ -144,10 +135,12 @@ class AuthView: UIView {
             resetPassButton.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
-    
+    // Установка констрейтоа не зависящих от варианта вью
     private func setupConstraints () {
       addSubview(titleLabel)
+      addSubview(padViewEmail)
       addSubview(emailTextField)
+      addSubview(padViewPassword)
       addSubview(passwordTextField)
       addSubview(enterButton)
    
@@ -158,27 +151,45 @@ class AuthView: UIView {
             titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 214),
             titleLabel.heightAnchor.constraint(equalToConstant: 41),
             
-            emailTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 38),
-            emailTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 45),
-            emailTextField.widthAnchor.constraint(equalToConstant: 300),
-            emailTextField.heightAnchor.constraint(equalToConstant: 44),
+            padViewEmail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            padViewEmail.topAnchor.constraint(equalTo:titleLabel.bottomAnchor, constant: 45),
+            padViewEmail.widthAnchor.constraint(equalToConstant: 300),
+            padViewEmail.heightAnchor.constraint(equalToConstant: 44),
+            
+            emailTextField.leadingAnchor.constraint(equalTo: padViewEmail.leadingAnchor, constant: 20),
+            emailTextField.topAnchor.constraint(equalTo: padViewEmail.topAnchor, constant: 11),
+            emailTextField.widthAnchor.constraint(equalToConstant: 244),
+            emailTextField.heightAnchor.constraint(equalToConstant: 22),
+            
+            padViewPassword.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            padViewPassword.topAnchor.constraint(equalTo: padViewEmail.bottomAnchor, constant: 15),
+            padViewPassword.widthAnchor.constraint(equalToConstant: 300),
+            padViewPassword.heightAnchor.constraint(equalToConstant: 44),
                     
-          passwordTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 38),
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
-          passwordTextField.widthAnchor.constraint(equalToConstant: 300),
-          passwordTextField.heightAnchor.constraint(equalToConstant: 44),
+            passwordTextField.leadingAnchor.constraint(equalTo: padViewPassword.leadingAnchor, constant: 20),
+            passwordTextField.topAnchor.constraint(equalTo: padViewPassword.topAnchor, constant: 11),
+            passwordTextField.widthAnchor.constraint(equalToConstant: 244),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 22),
           
-          enterButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 88),
-          enterButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
-          enterButton.widthAnchor.constraint(equalToConstant: 200),
-          enterButton.heightAnchor.constraint(equalToConstant: 42),
+            enterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 88),
+            enterButton.topAnchor.constraint(equalTo: padViewPassword.bottomAnchor, constant: 20),
+            enterButton.widthAnchor.constraint(equalToConstant: 200),
+            enterButton.heightAnchor.constraint(equalToConstant: 42),
         ])
     }
-
-    // MARK: - Private Helpers
-
-    private func textField(placeholder: String) -> PaddingTextField {
-      let textfield = PaddingTextField()
+    
+    // MARK: - Вспомагательные функции
+    //создание подложки для текстовых полей
+    private func padForText () -> UIView {
+        let view = UIView()
+        view.backgroundColor = Colors.backgrounsTextField
+        view.layer.cornerRadius = 20
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+    // создание текстовых полей
+    private func textField(placeholder: String) -> UITextField {
+      let textfield = UITextField()
       textfield.backgroundColor = Colors.backgrounsTextField
       textfield.layer.cornerRadius = 20
       textfield.placeholder = placeholder
